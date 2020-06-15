@@ -31,13 +31,19 @@ def ask_quit(self):
         
 # Open file
 def browse_button(self):
-    # Allow user to select a directory and store it in global var
+    # Allow user to select a directory and store it in var
     # called folder_path
-    global folder_path
     filename = filedialog.askdirectory()
-    folder_path.set(filename)
-    print(filename)
+    self.folder_path = filename()
+    
 
+# Open file
+def dest_button(self):
+    # Allow user to select a directory and store it in var
+    # called folder_path
+    filename = filedialog.askdirectory()
+    self.folder_path = filename()
+    
     
 
 # ====================================================================================

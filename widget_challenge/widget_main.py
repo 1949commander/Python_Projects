@@ -23,12 +23,12 @@ class ParentWindow(Frame):
 
         # define our master frame configuration
         self.master = master
-        self.master.minsize(500,150) #(Height, Width)
-        self.master.maxsize(500,150)
+        self.master.minsize(500,200) #(Height, Width)
+        self.master.maxsize(500,200)
         self.master.title("Check for files")
                             
         # This CenterWindow method will center our app on the user's screen
-        widget_func.center_window(self,500,150)
+        widget_func.center_window(self,500,200)
         self.master.protocol("WM_DELETE_WINDOW", lambda: widget_func.ask_quit(self))
         arg = self.master
 
@@ -39,6 +39,5 @@ class ParentWindow(Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    folder_path = StringVar()
     App = ParentWindow(root)
     root.mainloop()
