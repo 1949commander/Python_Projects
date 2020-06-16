@@ -33,22 +33,19 @@ def ask_quit(self):
 def browse_button(self):
     # Allow user to select a directory and store it in var
     # called folder_path
-    filename = filedialog.askdirectory()
-    self.folder_path = filename()
-    
+    filename1 = filedialog.askdirectory()
+    self.folder_path.insert(0, filename1)
 
 # Open file
 def dest_button(self):
     # Allow user to select a directory and store it in var
     # called folder_path
-    filename = filedialog.askdirectory()
-    self.folder_path = filename()
+    filename2 = filedialog.askdirectory()
+    self.folder_dest.insert(0,filename2)
     
     
 
 # ====================================================================================
-
-
 if __name__== '__main__':
     pass
 
