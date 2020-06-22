@@ -12,15 +12,13 @@ import tkinter as tk
 from tkinter import messagebox
 import os
 import html
-from tkinter import filedialog
-from tkinter import *
-import tkinter as tk
 import sqlite3
 
 # Frame is the Tkinter frame class that our own class will inherit from
 class ParentWindow(Frame):
     def __init__(self, master, *args, **kwargs):
         Frame.__init__(self, master, *args, **kwargs)
+        self.statement = StringVar()
 
         # define our master frame configuration
         self.master = master
@@ -36,6 +34,7 @@ class ParentWindow(Frame):
         # load in the GUI widgets from a separate module,
         # keeping your code compartmentalizd and clutter free
         load_gui(self)
+        
 
         
 def load_gui(self):
@@ -74,18 +73,18 @@ def ask_quit(self):
         os._exit(0)
         
 # Open file
-def save_statment(self):
+def save_statement(self):
     f = open("index.html", "w")
     html = """\
     <html>
       <head></head>
       <body>
         <p>
-           <br><br><h1>{statement}</h1><br>
+           <br><br><h1> {self.statement} </h1><br>
         </p>
       </body>
     </html>
-    """.format(statement=statement)
+    """
     f.write(html)
     f.close()
 
@@ -95,5 +94,4 @@ def save_statment(self):
 if __name__ == "__main__":
     root = tk.Tk()
     App = ParentWindow(root)
-    self.statement = StringVar()
     root.mainloop()
