@@ -34,8 +34,10 @@ class ParentWindow(Frame):
         # load in the GUI widgets from a separate module,
         # keeping your code compartmentalizd and clutter free
         load_gui(self)
-        
 
+def retrieve_input(self):
+    inputValue=self.statement.get()
+    print(inputValue)
         
 def load_gui(self):
     # Blank Row
@@ -43,7 +45,7 @@ def load_gui(self):
     self.lbl_space_1.grid(row=0,column=0,padx=(0,0),pady=(12,0),sticky=N+W)
     
     # Buttons
-    self.btn_save = tk.Button(self.master,width = 13, height = 1, text='Save', command = lambda: save_statement(self))
+    self.btn_save = tk.Button(self.master,width = 13, height = 1, text='Save', command = lambda: retrieve_input(self))
     self.btn_save.grid(row=1,column=0,padx=(8,5),pady=(10,0),sticky=N+W)
 
 
@@ -71,7 +73,7 @@ def ask_quit(self):
         # This closes app
         self.master.destroy()
         os._exit(0)
-        
+
 # Open file
 def save_statement(self):
     f = open("index.html", "w")
@@ -80,15 +82,15 @@ def save_statement(self):
       <head></head>
       <body>
         <p>
-           <br><br><h1> {self.statement} </h1><br>
+           <br><br><h1> {inputValue} </h1><br>
         </p>
       </body>
     </html>
     """
     f.write(html)
     f.close()
+        
 
-    
 
 
 if __name__ == "__main__":
