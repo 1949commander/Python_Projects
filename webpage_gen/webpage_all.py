@@ -35,9 +35,7 @@ class ParentWindow(Frame):
         # keeping your code compartmentalizd and clutter free
         load_gui(self)
 
-def retrieve_input(self):
-    inputValue=self.statement.get()
-    print(inputValue)
+
         
 def load_gui(self):
     # Blank Row
@@ -75,7 +73,9 @@ def ask_quit(self):
         os._exit(0)
 
 # Open file
-def save_statement(self):
+def retrieve_input(self):
+    inputValue=self.statement.get()
+    print(inputValue)
     f = open("index.html", "w")
     html = """\
     <html>
