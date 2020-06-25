@@ -41,3 +41,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     App = ParentWindow(root)
     root.mainloop()
+    path = ParentWindow()

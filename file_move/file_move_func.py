@@ -51,29 +51,30 @@ def dest_button(self):
 
     
 # Move files
-def GetFileList(path, type):
+def get_file_list(self):
+    self.path = originPath
+    self.type = fileType
     '''
     Return a list of filename matching the given path and file type
     '''
-    return glob.glob(path + "*" + type)
+    return glob.glob(self.path + "*" + self.type)
 
-# Create list of text filenames in Origin folder
-fileList = GetFileList(originPath, fileType)
-
-for file in fileList:
-    # Get last modified date and today's date
-    modifyDate = datetime.datetime.fromtimestamp(os.path.getmtime(file))
-    todaysDate = datetime.datetime.today()
-    
-    filePathList = file.split("\\") # Create a list from the filepath
-    filename = filePathList[-1] # The last element is a the filename
-    
-    # If modified within last 24 hours, then copy to destination folder
-    modifyDateLimit = modifyDate + datetime.timedelta(days=1)
-
-    # If the file was edited less then 24 hours ago then copy it
-    if modifyDateLimit > todaysDate:
-        shutil.copy2(file, destinationPath + filename)    
+##    # Create list of text filenames in Origin folder
+##    self.fileList = get_file_list(self.originPath, self.fileType)
+##    for file in fileList:
+##    # Get last modified date and today's date
+##        modifyDate = datetime.datetime.fromtimestamp(os.path.getmtime(file))
+##        todaysDate = datetime.datetime.today()
+##    
+##    filePathList = file.split("\\") # Create a list from the filepath
+##    filename = filePathList[-1] # The last element is a the filename
+##    
+##    # If modified within last 24 hours, then copy to destination folder
+##    modifyDateLimit = modifyDate + datetime.timedelta(days=1)
+##
+##    # If the file was edited less then 24 hours ago then copy it
+##    if modifyDateLimit > todaysDate:
+##        shutil.copy2(file, destinationPath + filename)    
 
 # ====================================================================================
 if __name__== '__main__':

@@ -20,7 +20,7 @@ def load_gui(self):
     self.btn_dest = tk.Button(self.master,width = 13, height = 1, text='Browse...', command = lambda: file_move_func.dest_button(self))
     self.btn_dest.grid(row=2,column=0,padx=(8,5),pady=(10,0),sticky=N+W)
 
-    self.btn_check = Button(self.master,width = 13, height = 2, text="Check for files...", command = lambda: file_move_func.GetFileList(self))
+    self.btn_check = Button(self.master,width = 13, height = 2, text="Check for files...", command = lambda: file_move_func.get_file_list(self, path, type))
     self.btn_check.grid(row=3,column=0,padx=(8,5),pady=(10,0),sticky=N+W)
 
     self.btn_close = Button(self.master,width = 13, height = 2, text="Close Program", command = lambda: file_move_func.ask_quit(self))
