@@ -6,10 +6,10 @@
 #               using Tkinter Parent and Child relationships.
 #
 # Tested OS:    This code was written and tested to work with Windows 10.
-
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import Frame
 
 # Be sure to import our other modules
 # so we can have access to them

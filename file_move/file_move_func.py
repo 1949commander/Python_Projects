@@ -1,20 +1,20 @@
+from tkinter import *
 import os
 from tkinter import filedialog
-from tkinter import *
 import tkinter as tk
 import sqlite3
 import glob
 import datetime
 import shutil
-
+from tkinter import messagebox
 # Be sure to import our other modules
 # so we can have access to them
 import file_move_main
 import file_move_gui
 
-originPath = ('')
-destinationPath = ('')
-fileType = ".txt"
+##originPath = ('')
+##destinationPath = ('')
+##fileType = ".txt"
 
 def center_window(self, w, h): # pass in the tkniter frame (master) reference and the w and h
     # get user's screen width and height
@@ -38,7 +38,7 @@ def browse_button(self):
     # Allow user to select a directory and store it in var
     # called folder_path
     originPath = filedialog.askdirectory()
-    self.folder_path.insert(0, originPath)
+    self.folder_orig.insert(0, originPath)
     print(originPath)
 
 # Open file
@@ -52,29 +52,33 @@ def dest_button(self):
     
 # Move files
 def get_file_list(self):
-    self.path = originPath
-    self.type = fileType
+    self.originPath = self.folder_orig.get()
+    self.type = self.file_type.get()
+    self.destinationPath = self.folder_dest.get()
     '''
     Return a list of filename matching the given path and file type
     '''
-    return glob.glob(self.path + "*" + self.type)
+    return glob.glob(self.originPath + "*" + self.type)
 
-##    # Create list of text filenames in Origin folder
-##    self.fileList = get_file_list(self.originPath, self.fileType)
-##    for file in fileList:
-##    # Get last modified date and today's date
-##        modifyDate = datetime.datetime.fromtimestamp(os.path.getmtime(file))
-##        todaysDate = datetime.datetime.today()
-##    
-##    filePathList = file.split("\\") # Create a list from the filepath
-##    filename = filePathList[-1] # The last element is a the filename
-##    
-##    # If modified within last 24 hours, then copy to destination folder
-##    modifyDateLimit = modifyDate + datetime.timedelta(days=1)
-##
-##    # If the file was edited less then 24 hours ago then copy it
-##    if modifyDateLimit > todaysDate:
-##        shutil.copy2(file, destinationPath + filename)    
+# Create list of text filenames in Origin folder
+
+    self.fileList = get_file_list(self.originPath, self.type)
+    print(self.fileList)
+
+    for self.file in self.fileList:
+    # Get last modified date and today's date
+        modifyDate = datetime.datetime.fromtimestamp(os.path.getmtime(file))
+        todaysDate = datetime.datetime.today()
+    
+    filePathList = file.split("\\") # Create a list from the filepath
+    filename = filePathList[-1] # The last element is a the filename
+    
+    # If modified within last 24 hours, then copy to destination folder
+    modifyDateLimit = modifyDate + datetime.timedelta(days=1)
+
+    # If the file was edited less then 24 hours ago then copy it
+    if modifyDateLimit > todaysDate:
+        shutil.copy2(file, self.destinationPath + filename)    
 
 # ====================================================================================
 if __name__== '__main__':
