@@ -1,11 +1,12 @@
-# Python Ver:   3.7.5
+# Python Ver:   3.8.3
 #
-# Author:       Brian Reeves and Daniel A. Christie
+# Author:       Brian Reeves
 #
-# Purpose:      Widget Demo. Demonstrating OOP, Tkinter GUI Module,
-#               using Tkinter Parent and Child relationships.
+# Purpose:      File Move. Move TXT files that have been modified in the,
+#                   last 24 hours.
 #
 # Tested OS:    This code was written and tested to work with Windows 10.
+
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
