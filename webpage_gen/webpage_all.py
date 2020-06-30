@@ -82,11 +82,11 @@ def retrieve_input(self):
       <head></head>
       <body>
         <p>
-           <br><br><h1> {inputValue} </h1><br>
+           <br><br><h1> {} </h1><br>
         </p>
       </body>
     </html>
-    """
+    """ .format(inputValue)
     f.write(html)
     f.close()
         

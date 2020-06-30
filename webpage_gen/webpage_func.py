@@ -1,4 +1,5 @@
 import os
+import html
 from tkinter import filedialog
 from tkinter import *
 import tkinter as tk
@@ -7,8 +8,8 @@ import sqlite3
 
 # Be sure to import our other modules
 # so we can have access to them
-import widget_main
-import widget_gui
+import webpage_main
+import webpage_gui
 
 
 
@@ -30,20 +31,21 @@ def ask_quit(self):
         os._exit(0)
         
 # Open file
-def browse_button(self):
-    # Allow user to select a directory and store it in var
-    # called folder_path
-    filename1 = filedialog.askdirectory()
-    self.folder_path.insert(0, filename1)
-    print(filename1)
+def save_statment(self):
+    f = open("index.html", "w")
+    html = """\
+    <html>
+      <head></head>
+      <body>
+        <p>
+           <br><br><h1>{statement}</h1><br>
+        </p>
+      </body>
+    </html>
+    """.format(statement=statement)
+    f.write(html)
+    f.close()
 
-# Open file
-def dest_button(self):
-    # Allow user to select a directory and store it in var
-    # called folder_path
-    filename2 = filedialog.askdirectory()
-    self.folder_dest.insert(0,filename2)
-    print(filename2)
     
     
 

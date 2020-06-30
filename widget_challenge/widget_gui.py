@@ -41,6 +41,6 @@ def load_gui(self):
 
 
 if __name__ == "__main__":
-    self.folder_path = StringVar()
-    self.folder_dest = StringVar()
+    # self.folder_path = StringVar()
+    # self.folder_dest = StringVar()
     pass
